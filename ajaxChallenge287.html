@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Are these the droids we're looking for?</p><br>
+    <button onclick="ajaxTime()">Answer</button>
+    <p id="timenow"></p>
+
+    <script>
+        
+        var ajax = new XMLHttpRequest();
+        ajax.open('GET', 'ajaxtimedemo.html');
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4) {
+                document.getElementById('timenow').innerHTML = ajax.responseText;
+            }
+        }
+        function ajaxTime() {
+            ajax.send();
+        }
+
+         </script>
+</body>
+</html>
